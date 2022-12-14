@@ -1,13 +1,6 @@
-import {
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-  ElementRef,
-} from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MultimediaService } from '@shared/services/multimedia.service';
-import { Subscription } from 'rxjs'; //TODO: Programacion reactiva!
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-media-player',
@@ -27,11 +20,6 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
     this.listObservers$ = [observer1$];
   }
 
-  ngOnDestroy(): void {
-    this.listObservers$.forEach((u) => u.unsubscribe());
-    console.log('🔴🔴🔴🔴🔴🔴🔴 BOOM!');
-  }
-
   handlePosition(event: MouseEvent): void {
     const elNative: HTMLElement = this.progressBar.nativeElement;
     const { clientX } = event;
@@ -40,5 +28,10 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
     const percentageFromX = (clickX * 100) / width;
     console.log(`Click(x): ${percentageFromX}`);
     this.multimediaService.seekAudio(percentageFromX);
+  }
+
+  ngOnDestroy(): void {
+    this.listObservers$.forEach((u) => u.unsubscribe());
+    console.log('🔴🔴🔴🔴🔴🔴🔴 BOOM!');
   }
 }

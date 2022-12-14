@@ -1,6 +1,6 @@
-import { TrackService } from '@modules/tracks/services/track.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
+import { TrackService } from '@modules/tracks/services/track.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './tracks-page.component.html',
   styleUrls: ['./tracks-page.component.css'],
 })
-export class TracksPageComponent implements OnInit, OnDestroy {
+export class TracksPageComponent implements OnInit {
   tracksTrending: Array<TrackModel> = [];
   tracksRandom: Array<TrackModel> = [];
   listObservers$: Array<Subscription> = [];
@@ -29,6 +29,4 @@ export class TracksPageComponent implements OnInit, OnDestroy {
       this.tracksRandom = response;
     });
   }
-
-  ngOnDestroy(): void {}
 }
