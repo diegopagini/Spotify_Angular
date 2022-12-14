@@ -5,12 +5,12 @@ import { FavoritePageComponent } from './pages/favorite-page/favorite-page.compo
 const routes: Routes = [
   {
     path: '',
-    component: FavoritePageComponent
-  }
+    component: FavoritePageComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class FavoritesRoutingModule { }
+export class FavoritesRoutingModule {}

@@ -9,9 +9,7 @@ describe('Testing of Session Guard 👍', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ]
+      imports: [RouterTestingModule],
     });
     guard = TestBed.inject(SessionGuard);
   });
@@ -20,5 +18,4 @@ describe('Testing of Session Guard 👍', () => {
   it('should be created', () => {
     expect(guard).toBeTruthy(); //TODO 🤬🤬🤬
   });
-
 });

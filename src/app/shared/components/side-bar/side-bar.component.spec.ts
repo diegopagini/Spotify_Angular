@@ -10,9 +10,8 @@ describe('SideBarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [SideBarComponent]
-    })
-      .compileComponents();
+      declarations: [SideBarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

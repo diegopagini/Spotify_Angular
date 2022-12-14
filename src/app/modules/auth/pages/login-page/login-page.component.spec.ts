@@ -11,13 +11,9 @@ describe('LoginPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        RouterTestingModule
-      ],
-      declarations: [LoginPageComponent]
-    })
-      .compileComponents();
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      declarations: [LoginPageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -32,20 +28,19 @@ describe('LoginPageComponent', () => {
   //TODO: Patron AAA
 
   it('🔴 Deberia de retornar "invalido" el formulario', () => {
-
     //TODO: Arrange
     const mockCredentials = {
       email: '0x0x0x0x0x0',
-      password: '1111111111111111111111111'
-    }
+      password: '1111111111111111111111111',
+    };
 
-    const emailForm: any = component.formLogin.get('email')
-    const passwordForm: any = component.formLogin.get('password')
+    const emailForm: any = component.formLogin.get('email');
+    const passwordForm: any = component.formLogin.get('password');
 
     //TODO: Act
 
-    emailForm.setValue(mockCredentials.email)
-    passwordForm.setValue(mockCredentials.password)
+    emailForm.setValue(mockCredentials.email);
+    passwordForm.setValue(mockCredentials.password);
 
     //TODO: Assert
 
@@ -53,20 +48,19 @@ describe('LoginPageComponent', () => {
   });
 
   it('✔✔ Deberia de retornar "valido" el formulario', () => {
-
     //TODO: Arrange
     const mockCredentials = {
       email: 'test@test.com',
-      password: '12345678'
-    }
+      password: '12345678',
+    };
 
-    const emailForm: any = component.formLogin.get('email')
-    const passwordForm: any = component.formLogin.get('password')
+    const emailForm: any = component.formLogin.get('email');
+    const passwordForm: any = component.formLogin.get('password');
 
     //TODO: Act
 
-    emailForm.setValue(mockCredentials.email)
-    passwordForm.setValue(mockCredentials.password)
+    emailForm.setValue(mockCredentials.email);
+    passwordForm.setValue(mockCredentials.password);
 
     //TODO: Assert
 
@@ -74,12 +68,11 @@ describe('LoginPageComponent', () => {
   });
 
   it('👍 El boton deberia de tener la palabra "Iniciar sesión"', () => {
+    const elementRef = fixture.debugElement.query(
+      By.css('.form-action button')
+    );
+    const getInnerText = elementRef.nativeElement.innerText;
 
-    const elementRef = fixture.debugElement.query(By.css('.form-action button'))
-    const getInnerText = elementRef.nativeElement.innerText
-
-    expect(getInnerText).toEqual('Iniciar sesión')
-
-  })
-
+    expect(getInnerText).toEqual('Iniciar sesión');
+  });
 });

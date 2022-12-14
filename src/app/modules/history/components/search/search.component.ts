@@ -3,24 +3,21 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
+  @Output() callbackData: EventEmitter<any> = new EventEmitter();
 
-  @Output() callbackData: EventEmitter<any> = new EventEmitter()
+  src: string = '';
 
-  src: string = ''
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   callSearch(term: string): void {
     if (term.length >= 3) {
-      this.callbackData.emit(term)
+      this.callbackData.emit(term);
       console.log('🔴 Llamamos a nuestra API HTTP GET---> ', term);
     }
   }
-
 }

@@ -18,20 +18,11 @@
     "target": "es2017",
     "module": "es2020",
     "paths": {
-      "@core/*": [
-        "src/app/core/*"
-      ],
-      "@modules/*": [
-        "src/app/modules/*"
-      ],
-      "@shared/*": [
-        "src/app/shared/*"
-      ]
+      "@core/*": ["src/app/core/*"],
+      "@modules/*": ["src/app/modules/*"],
+      "@shared/*": ["src/app/shared/*"]
     },
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
